@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark-900 text-white font-poppins;
+    background: radial-gradient(ellipse at top, #0f0f1a 0%, #050507 100%);
+    min-height: 100vh;
+  }
+
+  /* Remove scrollbar but keep scrolling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00d4ff, #bf5af2);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    @apply bg-dark-700 border border-white/10 rounded-2xl;
+    backdrop-filter: blur(20px);
+    background: rgba(15, 15, 26, 0.8);
+  }
+
+  /* Neon Button */
+  .btn-neon {
+    @apply relative px-8 py-3 font-orbitron font-semibold text-sm tracking-wider
+           rounded-xl transition-all duration-300 overflow-hidden
+           border border-neon-blue/50 text-neon-blue;
+    background: rgba(0, 212, 255, 0.05);
+  }
+  .btn-neon:hover {
+    @apply border-neon-blue text-white shadow-neon;
+    background: rgba(0, 212, 255, 0.15);
+  }
+  .btn-neon:active {
+    transform: scale(0.97);
+  }
+
+  /* Purple Neon Button */
+  .btn-purple {
+    @apply relative px-8 py-3 font-orbitron font-semibold text-sm tracking-wider
+           rounded-xl transition-all duration-300 overflow-hidden
+           border border-neon-purple/50 text-neon-purple;
+    background: rgba(191, 90, 242, 0.05);
+  }
+  .btn-purple:hover {
+    @apply border-neon-purple text-white shadow-neon-purple;
+    background: rgba(191, 90, 242, 0.15);
+  }
+
+  /* Primary filled button */
+  .btn-primary {
+    @apply px-8 py-3 font-orbitron font-bold text-sm tracking-wider
+           rounded-xl transition-all duration-300 text-dark-900;
+    background: linear-gradient(135deg, #00d4ff, #bf5af2);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 35px rgba(0, 212, 255, 0.7), 0 0 70px rgba(191, 90, 242, 0.3);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Danger Button */
+  .btn-danger {
+    @apply px-6 py-2.5 font-orbitron font-bold text-xs tracking-wider
+           rounded-xl transition-all duration-300 text-white;
+    background: linear-gradient(135deg, #ff375f, #bf5af2);
+    box-shadow: 0 0 15px rgba(255, 55, 95, 0.3);
+  }
+  .btn-danger:hover {
+    box-shadow: 0 0 25px rgba(255, 55, 95, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Success Button */
+  .btn-success {
+    @apply px-6 py-2.5 font-orbitron font-bold text-xs tracking-wider
+           rounded-xl transition-all duration-300 text-dark-900;
+    background: linear-gradient(135deg, #30d158, #00d4ff);
+    box-shadow: 0 0 15px rgba(48, 209, 88, 0.3);
+  }
+  .btn-success:hover {
+    box-shadow: 0 0 25px rgba(48, 209, 88, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Input field */
+  .input-neon {
+    @apply w-full px-4 py-3 rounded-xl font-poppins text-white text-sm
+           border border-white/10 outline-none transition-all duration-300;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .input-neon:focus {
+    @apply border-neon-blue/60;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+    background: rgba(0, 212, 255, 0.03);
+  }
+  .input-neon::placeholder {
+    @apply text-white/30;
+  }
+
+  /* Neon text */
+  .text-neon-glow {
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+  }
+  .text-purple-glow {
+    text-shadow: 0 0 10px #bf5af2, 0 0 20px #bf5af2;
+  }
+
+  /* Status badges */
+  .badge-waiting {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(255, 214, 10, 0.1);
+    color: #ffd60a;
+    border: 1px solid rgba(255, 214, 10, 0.3);
+  }
+  .badge-approved {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+  }
+  .badge-playing {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(191, 90, 242, 0.1);
+    color: #bf5af2;
+    border: 1px solid rgba(191, 90, 242, 0.3);
+  }
+  .badge-finished {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(48, 209, 88, 0.1);
+    color: #30d158;
+    border: 1px solid rgba(48, 209, 88, 0.3);
+  }
+  .badge-eliminated {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(255, 55, 95, 0.1);
+    color: #ff375f;
+    border: 1px solid rgba(255, 55, 95, 0.3);
+  }
+
+  /* Option button */
+  .option-btn {
+    @apply w-full text-left px-5 py-4 rounded-xl font-poppins text-sm
+           border border-white/10 transition-all duration-200 cursor-pointer;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .option-btn:hover {
+    @apply border-neon-blue/50;
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateX(4px);
+  }
+  .option-btn.selected {
+    @apply border-neon-blue text-neon-blue;
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+  }
+}
+
+/* Particle grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
