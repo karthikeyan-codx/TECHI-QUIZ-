@@ -1,8 +1,8 @@
 const WS_BASE =
   import.meta.env.VITE_WS_URL ||
   (window.location.protocol === "https:"
-    ? "wss://127.0.0.1:8011"
-    : "ws://127.0.0.1:8011");
+    ? `wss://${window.location.hostname}:8000`
+    : `ws://${window.location.hostname}:8000`);
 
 export function createAdminWebSocket(roomCode, handlers) {
   const ws = new WebSocket(`${WS_BASE}/ws/admin/${roomCode}`);

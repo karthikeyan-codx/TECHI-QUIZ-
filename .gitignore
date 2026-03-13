@@ -1,0 +1,28 @@
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vercel
+.next/
+
+# Python / Backend
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite3
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+reset_db.py
+inspect_db.py
+debug_db.py
